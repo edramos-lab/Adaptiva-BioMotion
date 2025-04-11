@@ -1,0 +1,30 @@
+[
+    {
+      "username": "edramos",
+      "password": "Manzan@1"
+    },
+    {"username": "hemayoli",
+        "password":"Lidia1985"    
+    },
+    {"username":"admin",
+        "password":"admin"
+    },
+    {"username":"jose",
+        "password":"Jose1234"
+    },
+    {"username":"marta",
+        "password":"Marta1234"
+    },
+    {"username":"pepe",
+        "password":"Pepe1234"
+    },
+    {"username":"luis",
+        "password":"Luis1234"
+    },
+    {"username":"ana",
+        "password":"Ana1234"
+    },
+    {"username":"laura",
+        "password":"Laura1234"
+    }
+]

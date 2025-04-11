@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoja de Diagnóstico</title>
+</head>
+<body>
+  <h1>Formulario de Diagnóstico</h1>
+  <form id="diagnosticForm">
+
+    <!-- 1. Datos Generales -->
+    <h2>1. Datos Generales</h2>
+    <label>Nombre del paciente: <input type="text" name="nombrePaciente" required></label><br>
+    <label>Edad: <input type="number" name="edad" required></label><br>
+    <label>Profesión: <input type="text" name="profesion"></label><br>
+    <label>Preferencias en el calzado: <input type="text" name="preferenciasCalzado"></label><br>
+
+    <!-- 2. Motivo de la visita -->
+    <h2>2. Motivo de la Visita</h2>
+    <label>Descripción del dolor o molestia: <textarea name="descripcionDolor"></textarea></label><br>
+    <label>¿Quién recomendó acudir?: <input type="text" name="recomendadoPor"></label><br>
+
+    <!-- ...las secciones anteriores se mantienen igual... -->
+
+    <!-- 3. Observación de la Marcha -->
+    <h2>3. Observación de la Marcha</h2>
+
+    <fieldset>
+    <legend>Inversión</legend>
+    <label>Derecha: <input type="checkbox" name="inversion_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="inversion_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Aducción</legend>
+    <label>Derecha: <input type="checkbox" name="aduccion_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="aduccion_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Supinación</legend>
+    <label>Derecha: <input type="checkbox" name="supinacion_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="supinacion_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Equino</legend>
+    <label>Derecha: <input type="checkbox" name="equino_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="equino_izquierda"></label>
+    </fieldset>
+
+    <label>Cojera: <input type="checkbox" name="cojera"></label><br>
+
+    <fieldset>
+    <legend>Eversión</legend>
+    <label>Derecha: <input type="checkbox" name="eversion_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="eversion_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Abducción</legend>
+    <label>Derecha: <input type="checkbox" name="abduccion_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="abduccion_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Pronación</legend>
+    <label>Derecha: <input type="checkbox" name="pronacion_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="pronacion_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Talo</legend>
+    <label>Derecha: <input type="checkbox" name="talo_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="talo_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Normal</legend>
+    <label>Derecha: <input type="checkbox" name="normal_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="normal_izquierda"></label>
+    </fieldset>
+
+    <!-- 4. Observación del Calzado -->
+    <h2>4. Observación del Calzado</h2>
+
+    <fieldset>
+    <legend>Desgaste</legend>
+    <label>Interno Derecha: <input type="checkbox" name="desgaste_interno_derecha"></label>
+    <label>Interno Izquierda: <input type="checkbox" name="desgaste_interno_izquierda"></label><br>
+    <label>Externo Derecha: <input type="checkbox" name="desgaste_externo_derecha"></label>
+    <label>Externo Izquierda: <input type="checkbox" name="desgaste_externo_izquierda"></label><br>
+    <label>Central Derecha: <input type="checkbox" name="desgaste_central_derecha"></label>
+    <label>Central Izquierda: <input type="checkbox" name="desgaste_central_izquierda"></label><br>
+    <label>Normal Derecha: <input type="checkbox" name="desgaste_normal_derecha"></label>
+    <label>Normal Izquierda: <input type="checkbox" name="desgaste_normal_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Zonas del Pie</legend>
+    <label>Retropié Derecha: <input type="checkbox" name="zona_retropie_derecha"></label>
+    <label>Retropié Izquierda: <input type="checkbox" name="zona_retropie_izquierda"></label><br>
+    <label>Mediopié Derecha: <input type="checkbox" name="zona_mediopie_derecha"></label>
+    <label>Mediopié Izquierda: <input type="checkbox" name="zona_mediopie_izquierda"></label><br>
+    <label>Antepié Derecha: <input type="checkbox" name="zona_antepie_derecha"></label>
+    <label>Antepié Izquierda: <input type="checkbox" name="zona_antepie_izquierda"></label>
+    </fieldset>
+
+    <label>Descripción del calzado observado:<br>
+    <textarea name="descripcionCalzado" rows="3" cols="40"></textarea>
+    </label><br>
+
+    <label>Observaciones:<br>
+    <textarea name="observacionesCalzado" rows="3" cols="40"></textarea>
+    </label><br>
+
+        <!-- 5. Observación en Podoscopio -->
+    <h2>5. Observación en Podoscopio</h2>
+
+    <fieldset>
+    <legend>Pie Plano</legend>
+    <label>Derecha: <input type="checkbox" name="pie_plano_derecha"></label>
+    <label>Grado: <input type="number" name="pie_plano_grado_derecha" min="0"></label><br>
+    <label>Izquierda: <input type="checkbox" name="pie_plano_izquierda"></label>
+    <label>Grado: <input type="number" name="pie_plano_grado_izquierda" min="0"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Pie Cavo</legend>
+    <label>Derecha: <input type="checkbox" name="pie_cavo_derecha"></label>
+    <label>Grado: <input type="number" name="pie_cavo_grado_derecha" min="0"></label><br>
+    <label>Izquierda: <input type="checkbox" name="pie_cavo_izquierda"></label>
+    <label>Grado: <input type="number" name="pie_cavo_grado_izquierda" min="0"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Valgo de Retropié</legend>
+    <label>Derecha: <input type="checkbox" name="valgo_retropie_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="valgo_retropie_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Valgo de Antepié</legend>
+    <label>Derecha: <input type="checkbox" name="valgo_antepie_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="valgo_antepie_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Pie Normal</legend>
+    <label>Derecha: <input type="checkbox" name="pie_normal_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="pie_normal_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Varo de Retropié</legend>
+    <label>Derecha: <input type="checkbox" name="varo_retropie_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="varo_retropie_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Varo de Antepié</legend>
+    <label>Derecha: <input type="checkbox" name="varo_antepie_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="varo_antepie_izquierda"></label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Dismetría</legend>
+    <label>Derecha: <input type="checkbox" name="dismetria_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="dismetria_izquierda"></label>
+    </fieldset>
+
+        <h3>Capturas del Podoscopio</h3>
+
+        <div class="webcam-section">
+          <div>
+            <label>Vista Frontal</label><br>
+            <video id="video_frontal" width="240" autoplay></video><br>
+            <button type="button" onclick="captureImage('frontal')">Capturar</button><br>
+            <canvas id="canvas_frontal" width="240" height="180" style="display:none;"></canvas>
+            <input type="hidden" name="imagen_frontal">
+          </div>
+        
+          <div>
+            <label>Vista Posterior</label><br>
+            <video id="video_posterior" width="240" autoplay></video><br>
+            <button type="button" onclick="captureImage('posterior')">Capturar</button><br>
+            <canvas id="canvas_posterior" width="240" height="180" style="display:none;"></canvas>
+            <input type="hidden" name="imagen_posterior">
+          </div>
+        
+          <div>
+            <label>Huella Plantar</label><br>
+            <video id="video_plantar" width="240" autoplay></video><br>
+            <button type="button" onclick="captureImage('plantar')">Capturar</button><br>
+            <canvas id="canvas_plantar" width="240" height="180" style="display:none;"></canvas>
+            <input type="hidden" name="imagen_plantar">
+          </div>
+          
+        </div>
+       
+
+    <h3>Capturas del Podoscopio</h3>
+
+
+
+
+    <!-- 6. Observación y Exploración del Dorso y Cara Plantar -->
+    <h2>6. Observación y Exploración del Dorso y Cara Plantar</h2>
+
+    <fieldset>
+    <legend>Exploración de Deformidades y Condiciones</legend>
+    <label><input type="checkbox" name="hallux_valgus"> Hallux Valgus</label><br>
+    <label><input type="checkbox" name="hallux_rigidus"> Hallux Rigidus</label><br>
+    <label><input type="checkbox" name="juanete_sastre"> Juanete de Sastre</label><br>
+    <label><input type="checkbox" name="dedo_garra"> Dedo de Garra</label><br>
+    <label><input type="checkbox" name="dedo_martillo"> Dedo de Martillo</label><br>
+    <label><input type="checkbox" name="quintus_varus"> Quintus Varus</label><br>
+    <label><input type="checkbox" name="alteracion_piel_uñas"> Alteración de piel y uñas</label><br>
+    <label><input type="checkbox" name="callosidades"> Formación de callosidades</label><br>
+    <label><input type="checkbox" name="verruga_plantar"> Verruga plantar</label>
+    </fieldset>
+
+    <label>Observaciones:<br>
+    <textarea name="observaciones_dorso_cara_plantar" rows="3" cols="40"></textarea>
+    </label><br>
+
+    
+    <fieldset>
+    <legend>Fórmula digital del antepié</legend>
+    <label><input type="checkbox" name="Pie_griego"> Pie griego</label><br>
+    <label><input type="checkbox" name="Pie_espanol"> Pie español</label><br>
+    <label><input type="checkbox" name="Pie_egipcio"> Pie egipcio</label><br>
+    <label><input type="checkbox" name="Pie_cuadrado"> Pie cuadrado</label><br>
+
+        
+        <!-- 7 Productos sugeridos (Continuación) -->
+    <h2>7. Productos sugeridos</h2>
+
+    <fieldset>
+        <legend>Bases</legend>
+        <label>Derecho: <input type="checkbox" name="base_derecha"></label><br>
+        <label>Izquierda: <input type="checkbox" name="base_izquierda"></label><br>
+    </fieldset>
+        <!-- Arcos longtudinales -->
+
+    <fieldset>
+        <legend>Arcos longitudinales</legend>
+        <label>Arco longitudinal derecho (No.): <input type="text" name="arco_longitudinal_derecho"></label><br>
+        <label>Arco longitudinal izquierdo (No.): <input type="text" name="arco_longitudinal_izquierdo"></label><br>
+    </fieldset>
+    <!-- Arcos extras -->
+    <fieldset>
+    <legend>Arcos Extras</legend>
+    <label>Arco extra derecho (No.): <input type="text" name="arco_extra_derecho"></label><br>
+    <label>Arco extra izquierdo (No.): <input type="text" name="arco_extra_izquierdo"></label><br>
+    </fieldset>
+    <!-- Cuña de retropié -->
+    <fieldset>
+    <legend>Cuña de Retropié</legend>
+    <label>Derecha Interna: <input type="checkbox" name="cuña_retropie_derecha_int"></label>
+    <label>Derecha Externa: <input type="checkbox" name="cuña_retropie_derecha_ext"></label><br>
+    <label>Izquierda Interna: <input type="checkbox" name="cuña_retropie_izquierda_int"></label>
+    <label>Izquierda Externa: <input type="checkbox" name="cuña_retropie_izquierda_ext"></label>
+    </fieldset>
+
+    <!-- Barras laterales -->
+    <fieldset>
+    <legend>Barras Laterales</legend>
+    <label>Derecha: <input type="checkbox" name="barra_lateral_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="barra_lateral_izquierda"></label>
+    </fieldset>
+
+    <!-- Botón retrocapital -->
+    <label>Botón retrocapital derecho (No.): <input type="text" name="boton_retrocapital_derecho"></label><br>
+    <label>Botón retrocapital izquierdo (No.): <input type="text" name="boton_retrocapital_izquierdo"></label><br>
+
+    <!-- Barras metatarsales -->
+    <fieldset>
+    <legend>Barras Metatarsales</legend>
+    <label>Derecha: <input type="checkbox" name="barra_metatarsal_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="barra_metatarsal_izquierda"></label>
+    </fieldset>
+
+    <!-- Taloneras -->
+    <fieldset>
+    <legend>Taloneras</legend>
+    <label>Derecha (QTY): <input type="number" name="talonera_derecha_qty" min="0"></label>
+    <label>Izquierda (QTY): <input type="number" name="talonera_izquierda_qty" min="0"></label>
+    </fieldset>
+
+    <!-- Donas -->
+    <fieldset>
+    <legend>Donas</legend>
+    <label>Derecha (QTY): <input type="number" name="dona_derecha_qty" min="0"></label>
+    <label>Izquierda (QTY): <input type="number" name="dona_izquierda_qty" min="0"></label>
+    </fieldset>
+
+    <!-- Herraduras -->
+    <fieldset>
+    <legend>Herraduras</legend>
+    <label>Derecha: <input type="checkbox" name="herradura_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="herradura_izquierda"></label>
+    </fieldset>
+
+    <!-- Aumentos -->
+    <fieldset>
+    <legend>Aumentos</legend>
+    <label>Derecha:</label>
+    <select name="aumento_derecha">
+        <option value="">Seleccionar</option>
+        <option value="2.5mm">2.5 mm</option>
+        <option value="5mm">5 mm</option>
+        <option value="10mm">10 mm</option>
+    </select>
+    <label>Izquierda:</label>
+    <select name="aumento_izquierda">
+        <option value="">Seleccionar</option>
+        <option value="2.5mm">2.5 mm</option>
+        <option value="5mm">5 mm</option>
+        <option value="10mm">10 mm</option>
+    </select>
+    </fieldset>
+
+    <!-- Virones -->
+    <fieldset>
+    <legend>Virones</legend>
+    <label>Derecha:</label>
+    <select name="viron_derecha">
+        <option value="">Seleccionar</option>
+        <option value="int_4mm">Interno 4 mm</option>
+        <option value="ext_4mm">Externo 4 mm</option>
+        <option value="int_6mm">Interno 6 mm</option>
+        <option value="ext_6mm">Externo 6 mm</option>
+    </select><br>
+    <label>Izquierda:</label>
+    <select name="viron_izquierda">
+        <option value="">Seleccionar</option>
+        <option value="int_4mm">Interno 4 mm</option>
+        <option value="ext_4mm">Externo 4 mm</option>
+        <option value="int_6mm">Interno 6 mm</option>
+        <option value="ext_6mm">Externo 6 mm</option>
+    </select>
+    </fieldset>
+
+    <!-- Otros accesorios -->
+    <label>Otros accesorios:<br>
+    <textarea name="otros_accesorios" rows="2" cols="40"></textarea>
+    </label><br>
+
+    <!-- Observaciones generales -->
+    <label>Observaciones generales:<br>
+    <textarea name="observaciones_generales" rows="3" cols="40"></textarea>
+    </label><br>
+
+    <!-- Datos de contacto del cliente -->
+    <h2>8. Datos de Contacto del Cliente</h2>
+
+    <label>Teléfono fijo: <input type="tel" name="telefono_fijo" pattern="[0-9]{10}" placeholder="10 dígitos"></label><br>
+    <label>Celular: <input type="tel" name="celular" pattern="[0-9]{10}" placeholder="10 dígitos"></label><br>
+    <label>Email: <input type="email" name="email" placeholder="correo@ejemplo.com"></label><br>
+    <label>Ciudad: <input type="text" name="ciudad" placeholder="Ciudad de residencia"></label><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script src="form.js"></script>
+</body>
+</html>

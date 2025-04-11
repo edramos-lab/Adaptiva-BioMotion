@@ -1,0 +1,10 @@
+runtime: nodejs18
+instance_class: F2
+entrypoint: node index.js
+
+handlers:
+  - url: /uploads
+    static_dir: uploads
+
+  - url: /
+    static_dir: public
