@@ -40,6 +40,7 @@ app.post("/api/form", (req, res) => {
     data.imagen_frontal = saveImage(data.imagen_frontal, "frontal");
     data.imagen_posterior = saveImage(data.imagen_posterior, "posterior");
     data.imagen_plantar = saveImage(data.imagen_plantar, "plantar");
+    data.imagen_retropie=saveImage(data.imagen_retropie,"retropie")
 
     const dbPath = path.join(__dirname, "form_data.json");
     let records = [];
