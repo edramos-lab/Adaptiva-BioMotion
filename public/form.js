@@ -19,13 +19,18 @@ function captureImage(view) {
   const video = document.getElementById(`video_${view}`);
   const canvas = document.getElementById(`canvas_${view}`);
   const input = document.querySelector(`input[name="imagen_${view}"]`);
+  const imgPreview = document.getElementById(`img_${view}`);
 
-  const ctx = canvas.getContext('2d');
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  const context = canvas.getContext('2d');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  const base64Image = canvas.toDataURL('image/png');
-  input.value = base64Image;
+  const dataURL = canvas.toDataURL('image/png');
+  input.value = dataURL;
+  imgPreview.src = dataURL;
 }
+
 
   
   
@@ -41,16 +46,27 @@ document.getElementById('diagnosticForm').addEventListener('submit', async (e) =
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-  
+    
+      const text = await response.text();
+      let resData;
+      try {
+        resData = JSON.parse(text);
+      } catch {
+        console.error("❌ Respuesta no es JSON:", text);
+        alert("Respuesta inesperada del servidor.");
+        return;
+      }
+    
       if (response.ok) {
-        alert('Formulario enviado con éxito');
+        alert('Formulario enviado con éxito\nID: ' + resData.id);
         e.target.reset();
       } else {
-        alert('Hubo un error al enviar el formulario');
+        alert('Error: ' + resData.message || 'Error desconocido');
       }
     } catch (err) {
       console.error('Error al enviar el formulario:', err);
       alert('Error inesperado al enviar el formulario');
     }
+    
   });
   

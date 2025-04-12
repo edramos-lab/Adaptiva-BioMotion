@@ -169,46 +169,98 @@
     <label>Izquierda: <input type="checkbox" name="dismetria_izquierda"></label>
     </fieldset>
 
-        <h3>Capturas del Podoscopio</h3>
+        <style>
+  .webcam-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 
-        <div class="webcam-section">
-          <div>
-            <label>Vista Frontal</label><br>
-            <video id="video_frontal" width="240" autoplay></video><br>
-            <button type="button" onclick="captureImage('frontal')">Capturar</button><br>
-            <canvas id="canvas_frontal" width="240" height="180" style="display:none;"></canvas>
-            <input type="hidden" name="imagen_frontal">
-          </div>
-        
-          <div>
-            <label>Vista Posterior</label><br>
-            <video id="video_posterior" width="240" autoplay></video><br>
-            <button type="button" onclick="captureImage('posterior')">Capturar</button><br>
-            <canvas id="canvas_posterior" width="240" height="180" style="display:none;"></canvas>
-            <input type="hidden" name="imagen_posterior">
-          </div>
-        
-          <div>
-            <label>Huella Plantar</label><br>
-            <video id="video_plantar" width="240" autoplay></video><br>
-            <button type="button" onclick="captureImage('plantar')">Capturar</button><br>
-            <canvas id="canvas_plantar" width="240" height="180" style="display:none;"></canvas>
-            <input type="hidden" name="imagen_plantar">
-          </div>
+  .capture-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
 
-          <div>
-            <label>Retropie</label><br>
-            <video id="video_retropie" width="240" autoplay></video><br>
-            <button type="button" onclick="captureImage('retropie')">Capturar</button><br>
-            <canvas id="canvas_retropie" width="240" height="180" style="display:none;"></canvas>
-            <input type="hidden" name="imagen_retropie">
-          </div>
-          
-        </div>
-       
+  video {
+    border: 2px solid #333;
+  }
 
-    <h3>Capturas del Podoscopio</h3>
+  .preview-box {
+    width: 240px;
+    height: 180px;
+    border: 2px dashed #888;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .preview-box img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
+
+<h3>Capturas del Podoscopio</h3>
+
+<div class="webcam-section">
+  <!-- Repeat this block for each view -->
+  <div class="capture-box">
+    <div>
+      <label>Vista Frontal</label><br>
+      <video id="video_frontal" width="240" autoplay></video><br>
+      <button type="button" onclick="captureImage('frontal')">Capturar</button><br>
+      <canvas id="canvas_frontal" width="240" height="180" style="display:none;"></canvas>
+      <input type="hidden" name="imagen_frontal">
+    </div>
+    <div class="preview-box">
+      <img id="img_frontal" src="" alt="Imagen Frontal">
+    </div>
+  </div>
+
+  <div class="capture-box">
+    <div>
+      <label>Vista Posterior</label><br>
+      <video id="video_posterior" width="240" autoplay></video><br>
+      <button type="button" onclick="captureImage('posterior')">Capturar</button><br>
+      <canvas id="canvas_posterior" width="240" height="180" style="display:none;"></canvas>
+      <input type="hidden" name="imagen_posterior">
+    </div>
+    <div class="preview-box">
+      <img id="img_posterior" src="" alt="Imagen Posterior">
+    </div>
+  </div>
+
+  <div class="capture-box">
+    <div>
+      <label>Huella Plantar</label><br>
+      <video id="video_plantar" width="240" autoplay></video><br>
+      <button type="button" onclick="captureImage('plantar')">Capturar</button><br>
+      <canvas id="canvas_plantar" width="240" height="180" style="display:none;"></canvas>
+      <input type="hidden" name="imagen_plantar">
+    </div>
+    <div class="preview-box">
+      <img id="img_plantar" src="" alt="Huella Plantar">
+    </div>
+  </div>
+
+  <div class="capture-box">
+    <div>
+      <label>Retropie</label><br>
+      <video id="video_retropie" width="240" autoplay></video><br>
+      <button type="button" onclick="captureImage('retropie')">Capturar</button><br>
+      <canvas id="canvas_retropie" width="240" height="180" style="display:none;"></canvas>
+      <input type="hidden" name="imagen_retropie">
+    </div>
+    <div class="preview-box">
+      <img id="img_retropie" src="" alt="Retropie">
+    </div>
+  </div>
+</div>
 
 
 
@@ -245,9 +297,31 @@
     <h2>7. Productos sugeridos</h2>
 
     <fieldset>
-        <legend>Bases</legend>
-        <label>Derecho: <input type="checkbox" name="base_derecha"></label><br>
-        <label>Izquierda: <input type="checkbox" name="base_izquierda"></label><br>
+      <legend>Bases</legend>
+      <label>Derecho:</label>
+      <select name="base_derecha">
+        <option value="">Seleccionar</option>
+        <option value="XG">XG</option>
+        <option value="G">G</option>
+        <option value="ML">ML</option>
+        <option value="M">M</option>
+        <option value="CH">CH</option>
+        <option value="N">N</option>
+        <option value="16-21">16-21</option>
+        <option value="12-16">12-16</option>
+      </select><br>
+      <label>Izquierda:</label>
+      <select name="base_izquierda">
+        <option value="">Seleccionar</option>
+        <option value="XG">XG</option>
+        <option value="G">G</option>
+        <option value="ML">ML</option>
+        <option value="M">M</option>
+        <option value="CH">CH</option>
+        <option value="N">N</option>
+        <option value="16-21">16-21</option>
+        <option value="12-16">12-16</option>
+      </select><br>
     </fieldset>
         <!-- Arcos longtudinales -->
 
