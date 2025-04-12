@@ -1,9 +1,13 @@
+// firebase.js (your custom file)
 const functions = require("firebase-functions");
 const admin = require('firebase-admin');
-admin.initializeApp();
-const bucket = admin.storage().bucket();
+admin.initializeApp({
+  storageBucket: 'gs://adaptivabiomotion-93558.firebasestorage.app' // Specify the bucket explicitly
+});
+const bucket = admin.storage().bucket(); // This will now use the correct bucket
 
 const express = require("express");
+var cors=require('cors');
 const path = require("path");
 const fs = require("fs");
 console.log("📂 Servir imágenes desde:", path.join(__dirname, 'uploads'));
@@ -11,6 +15,7 @@ console.log("📂 Servir imágenes desde:", path.join(__dirname, 'uploads'));
 const app = express();
 
 // Middlewares
+app.use(cors({origin: true,credentials: true}));
 app.use(express.json({limit: "100mb"}));
 app.use(express.static(path.join(__dirname, "../public"))); // frontend
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

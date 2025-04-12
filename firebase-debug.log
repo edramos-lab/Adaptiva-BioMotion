@@ -1,0 +1,213 @@
+[debug] [2025-04-12T03:34:09.716Z] ----------------------------------------------------------------------
+[debug] [2025-04-12T03:34:09.718Z] Command:       /home/edramos/.nvm/versions/node/v20.15.0/bin/node /home/edramos/.nvm/versions/node/v20.15.0/bin/firebase deploy --only functions,hosting
+[debug] [2025-04-12T03:34:09.718Z] CLI Version:   14.1.0
+[debug] [2025-04-12T03:34:09.719Z] Platform:      linux
+[debug] [2025-04-12T03:34:09.719Z] Node Version:  v20.15.0
+[debug] [2025-04-12T03:34:09.719Z] Time:          Fri Apr 11 2025 20:34:09 GMT-0700 (Pacific Daylight Time)
+[debug] [2025-04-12T03:34:09.719Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-12T03:34:09.862Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-12T03:34:10.041Z] Running auto auth
+[debug] [2025-04-12T03:34:10.042Z] [iam] checking project adaptivabiomotion-93558 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-04-12T03:34:10.042Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:10.043Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions [none]
+[debug] [2025-04-12T03:34:10.043Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:10.043Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-12T03:34:10.203Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions 200
+[debug] [2025-04-12T03:34:10.203Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-12T03:34:10.203Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:10.203Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/adaptivabiomotion-93558/serviceAccounts/adaptivabiomotion-93558@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-04-12T03:34:10.203Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/adaptivabiomotion-93558/serviceAccounts/adaptivabiomotion-93558@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-04-12T03:34:10.468Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/adaptivabiomotion-93558/serviceAccounts/adaptivabiomotion-93558@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-04-12T03:34:10.468Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/adaptivabiomotion-93558/serviceAccounts/adaptivabiomotion-93558@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-04-12T03:34:10.468Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:10.469Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/adaptivabiomotion-93558 [none]
+[debug] [2025-04-12T03:34:10.902Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/adaptivabiomotion-93558 200
+[debug] [2025-04-12T03:34:10.902Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/adaptivabiomotion-93558 {"projectId":"adaptivabiomotion-93558","projectNumber":"274296017855","displayName":"adaptivabiomotion","name":"projects/adaptivabiomotion-93558","resources":{"hostingSite":"adaptivabiomotion-93558"},"state":"ACTIVE","etag":"1_1c942ec3-3d41-4bec-aa44-9b81a89d9eda"}
+[info] 
+[info] === Deploying to 'adaptivabiomotion-93558'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2025-04-12T03:34:10.905Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:10.905Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558 [none]
+[debug] [2025-04-12T03:34:11.015Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558 200
+[debug] [2025-04-12T03:34:11.016Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558 {"projectNumber":"274296017855","projectId":"adaptivabiomotion-93558","lifecycleState":"ACTIVE","name":"adaptivabiomotion","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-04-10T20:45:03.943510Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2025-04-12T03:34:11.016Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:11.017Z] No OAuth tokens found
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2025-04-12T03:34:11.017Z] No OAuth tokens found
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-04-12T03:34:11.017Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:11.017Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-04-12T03:34:11.017Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:11.018Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-04-12T03:34:11.018Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:11.019Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/cloudbuild.googleapis.com [none]
+[debug] [2025-04-12T03:34:11.019Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/cloudbuild.googleapis.com x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:11.019Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/artifactregistry.googleapis.com [none]
+[debug] [2025-04-12T03:34:11.020Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/artifactregistry.googleapis.com x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:11.260Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/cloudfunctions.googleapis.com 200
+[debug] [2025-04-12T03:34:11.261Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2025-04-12T03:34:11.460Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/runtimeconfig.googleapis.com 200
+[debug] [2025-04-12T03:34:11.460Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-04-12T03:34:11.461Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/cloudbuild.googleapis.com 200
+[debug] [2025-04-12T03:34:11.461Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2025-04-12T03:34:11.477Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/artifactregistry.googleapis.com 200
+[debug] [2025-04-12T03:34:11.477Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2025-04-12T03:34:11.477Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:11.478Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/adaptivabiomotion-93558/adminSdkConfig [none]
+[debug] [2025-04-12T03:34:11.719Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/adaptivabiomotion-93558/adminSdkConfig 200
+[debug] [2025-04-12T03:34:11.720Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/adaptivabiomotion-93558/adminSdkConfig {"projectId":"adaptivabiomotion-93558","storageBucket":"adaptivabiomotion-93558.firebasestorage.app"}
+[debug] [2025-04-12T03:34:11.720Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:11.720Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/adaptivabiomotion-93558/configs [none]
+[debug] [2025-04-12T03:34:11.956Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/adaptivabiomotion-93558/configs 200
+[debug] [2025-04-12T03:34:11.956Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/adaptivabiomotion-93558/configs {}
+[debug] [2025-04-12T03:34:11.957Z] Validating nodejs source
+[debug] [2025-04-12T03:34:12.283Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions,hosting --force",
+    "logs": "firebase functions:log",
+    "lint": "echo \"No lint configured\""
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "express": "^5.1.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-04-12T03:34:12.283Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-04-12T03:34:12.284Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-04-12T03:34:12.287Z] Found firebase-functions binary at '/home/edramos/Documents/DEVOPS/WebApps/Adaptiva-BioMotion/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8251
+
+[info] 📂 Servir imágenes desde: /home/edramos/Documents/DEVOPS/WebApps/Adaptiva-BioMotion/functions/uploads
+
+[debug] [2025-04-12T03:34:12.582Z] Got response from /__/functions.yaml {"endpoints":{"app":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-04-12T03:34:17.598Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:17.598Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-04-12T03:34:17.598Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:18.069Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/firebaseextensions.googleapis.com 200
+[debug] [2025-04-12T03:34:18.069Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/firebaseextensions.googleapis.com [omitted]
+[info] ✔  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2025-04-12T03:34:18.069Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-12T03:34:18.070Z] Running auto auth
+[debug] [2025-04-12T03:34:18.070Z] [iam] checking project adaptivabiomotion-93558 for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-04-12T03:34:18.070Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:18.070Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions [none]
+[debug] [2025-04-12T03:34:18.070Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:18.070Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-04-12T03:34:18.200Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions 200
+[debug] [2025-04-12T03:34:18.200Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-04-12T03:34:18.200Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:18.200Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/adaptivabiomotion-93558/instances pageSize=100&pageToken=
+[debug] [2025-04-12T03:34:18.683Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/adaptivabiomotion-93558/instances 200
+[debug] [2025-04-12T03:34:18.683Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/adaptivabiomotion-93558/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /home/edramos/Documents/DEVOPS/WebApps/Adaptiva-BioMotion/functions (1.8 MB) for uploading 
+[debug] [2025-04-12T03:34:18.759Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:18.759Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/adaptivabiomotion-93558/locations/-/functions [none]
+[debug] [2025-04-12T03:34:19.275Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/adaptivabiomotion-93558/locations/-/functions 200
+[debug] [2025-04-12T03:34:19.275Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/adaptivabiomotion-93558/locations/-/functions {}
+[debug] [2025-04-12T03:34:19.276Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:19.276Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/adaptivabiomotion-93558/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2025-04-12T03:34:19.881Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/adaptivabiomotion-93558/locations/-/functions 200
+[debug] [2025-04-12T03:34:19.881Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/adaptivabiomotion-93558/locations/-/functions {"functions":[{"name":"projects/adaptivabiomotion-93558/locations/us-central1/functions/app","buildConfig":{"build":"projects/274296017855/locations/us-central1/builds/19996fec-946f-4abb-b51d-88a93052f381","runtime":"nodejs22","entryPoint":"app","source":{"storageSource":{"bucket":"gcf-v2-sources-274296017855-us-central1","object":"app/function-source.zip","generation":"1744426093639596"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/adaptivabiomotion-93558/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-274296017855-us-central1","object":"app/function-source.zip","generation":"1744426093639596"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/adaptivabiomotion-93558/serviceAccounts/274296017855-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/adaptivabiomotion-93558/locations/us-central1/services/app","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"adaptivabiomotion-93558\",\"storageBucket\":\"adaptivabiomotion-93558.firebasestorage.app\"}","GCLOUD_PROJECT":"adaptivabiomotion-93558","EVENTARC_CLOUD_EVENT_SOURCE":"projects/adaptivabiomotion-93558/locations/us-central1/services/app","FUNCTION_TARGET":"app","LOG_EXECUTION_ID":"true"},"maxInstanceCount":3,"ingressSettings":"ALLOW_ALL","uri":"https://app-maddzahwgq-uc.a.run.app","serviceAccountEmail":"274296017855-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"app-00009-dif","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","updateTime":"2025-04-12T02:49:14.748643949Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"b87c03f5e0812a5f4e2dddc71f567cdb6369b87c"},"environment":"GEN_2","url":"https://us-central1-adaptivabiomotion-93558.cloudfunctions.net/app","createTime":"2025-04-10T22:39:30.601867429Z","satisfiesPzi":true}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2025-04-12T03:34:19.883Z] No OAuth tokens found
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2025-04-12T03:34:19.883Z] No OAuth tokens found
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2025-04-12T03:34:19.883Z] No OAuth tokens found
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2025-04-12T03:34:19.884Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:19.884Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/run.googleapis.com [none]
+[debug] [2025-04-12T03:34:19.884Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/run.googleapis.com x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:19.884Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/eventarc.googleapis.com [none]
+[debug] [2025-04-12T03:34:19.884Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/eventarc.googleapis.com x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:19.885Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/pubsub.googleapis.com [none]
+[debug] [2025-04-12T03:34:19.885Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/pubsub.googleapis.com x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:19.886Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/storage.googleapis.com [none]
+[debug] [2025-04-12T03:34:19.886Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/storage.googleapis.com x-goog-quota-user=projects/adaptivabiomotion-93558
+[debug] [2025-04-12T03:34:20.245Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/run.googleapis.com 200
+[debug] [2025-04-12T03:34:20.246Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/run.googleapis.com [omitted]
+[info] ✔  functions: required API run.googleapis.com is enabled 
+[debug] [2025-04-12T03:34:20.259Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/eventarc.googleapis.com 200
+[debug] [2025-04-12T03:34:20.259Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/eventarc.googleapis.com [omitted]
+[info] ✔  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2025-04-12T03:34:20.269Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/pubsub.googleapis.com 200
+[debug] [2025-04-12T03:34:20.269Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/pubsub.googleapis.com [omitted]
+[info] ✔  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2025-04-12T03:34:20.295Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/storage.googleapis.com 200
+[debug] [2025-04-12T03:34:20.295Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/adaptivabiomotion-93558/services/storage.googleapis.com [omitted]
+[info] ✔  functions: required API storage.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2025-04-12T03:34:20.296Z] No OAuth tokens found
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2025-04-12T03:34:20.296Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:20.296Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/274296017855/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-04-12T03:34:20.296Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/274296017855/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-04-12T03:34:20.749Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/274296017855/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2025-04-12T03:34:20.749Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/274296017855/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-274296017855@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"101936146555618515403"}}
+[debug] [2025-04-12T03:34:20.802Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/274296017855/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2025-04-12T03:34:20.802Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/274296017855/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-274296017855@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"103124481605484625205"}}
+[debug] [2025-04-12T03:34:20.803Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:20.803Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558 [none]
+[debug] [2025-04-12T03:34:20.925Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558 200
+[debug] [2025-04-12T03:34:20.925Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/adaptivabiomotion-93558 {"projectNumber":"274296017855","projectId":"adaptivabiomotion-93558","lifecycleState":"ACTIVE","name":"adaptivabiomotion","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-04-10T20:45:03.943510Z"}
+[debug] [2025-04-12T03:34:20.926Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:20.926Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/adaptivabiomotion-93558/versions [none]
+[debug] [2025-04-12T03:34:20.926Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/adaptivabiomotion-93558/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-04-12T03:34:21.515Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/adaptivabiomotion-93558/versions 200
+[debug] [2025-04-12T03:34:21.515Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/adaptivabiomotion-93558/versions {"name":"projects/274296017855/sites/adaptivabiomotion-93558/versions/19a327560a0d4b14","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-04-12T03:34:21.516Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:21.516Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/adaptivabiomotion-93558/billingInfo [none]
+[debug] [2025-04-12T03:34:21.939Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/adaptivabiomotion-93558/billingInfo 200
+[debug] [2025-04-12T03:34:21.939Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/adaptivabiomotion-93558/billingInfo {"name":"projects/adaptivabiomotion-93558/billingInfo","projectId":"adaptivabiomotion-93558","billingAccountName":"billingAccounts/013345-5FE49F-DD29C2","billingEnabled":true}
+[debug] [2025-04-12T03:34:21.940Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:21.941Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/adaptivabiomotion-93558/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2025-04-12T03:34:22.344Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/adaptivabiomotion-93558/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2025-04-12T03:34:22.344Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/adaptivabiomotion-93558/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-274296017855.us-central1.cloudfunctions.appspot.com/a0e4739e-ac60-4def-af0f-f2c05a1ee327.zip?GoogleAccessId=service-274296017855@gcf-admin-robot.iam.gserviceaccount.com&Expires=1744430662&Signature=mhim6ZS6JjA14KWXsiWhdzaaT8E2FP6sQlotNlTOONqKC4kXgXsRjn7hMA08TrntYrMVVdEijgqhbOegBkpR1wzUgLgNt6nXszJxQnuN13uQdZZnwqnBeooHRanINPzPAzxI6onXTEDntEC9YAsN6c%2B6QaKRPKBuHgYhPaPooK4dZO2gfTylCOcZYV0hbZGu7A%2FaZJFQDNC3heKynCetVdZgFFCnji9ThC%2B4ZDf%2FQHI2p5dwC79WTpZ%2FW1578E3VVoreoWh1kOOXDBqUA9bHN59%2FS59z4hgqRccPyHPvVj8RLu3NwhejW5LjdvFsQSHBiP5ebNGFXru1eEfwCg0Lsg%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-274296017855.us-central1.cloudfunctions.appspot.com","object":"a0e4739e-ac60-4def-af0f-f2c05a1ee327.zip"}}
+[debug] [2025-04-12T03:34:22.345Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-274296017855.us-central1.cloudfunctions.appspot.com/a0e4739e-ac60-4def-af0f-f2c05a1ee327.zip GoogleAccessId=service-274296017855%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1744430662&Signature=mhim6ZS6JjA14KWXsiWhdzaaT8E2FP6sQlotNlTOONqKC4kXgXsRjn7hMA08TrntYrMVVdEijgqhbOegBkpR1wzUgLgNt6nXszJxQnuN13uQdZZnwqnBeooHRanINPzPAzxI6onXTEDntEC9YAsN6c%2B6QaKRPKBuHgYhPaPooK4dZO2gfTylCOcZYV0hbZGu7A%2FaZJFQDNC3heKynCetVdZgFFCnji9ThC%2B4ZDf%2FQHI2p5dwC79WTpZ%2FW1578E3VVoreoWh1kOOXDBqUA9bHN59%2FS59z4hgqRccPyHPvVj8RLu3NwhejW5LjdvFsQSHBiP5ebNGFXru1eEfwCg0Lsg%3D%3D
+[debug] [2025-04-12T03:34:22.345Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-274296017855.us-central1.cloudfunctions.appspot.com/a0e4739e-ac60-4def-af0f-f2c05a1ee327.zip [stream]
+[debug] [2025-04-12T03:34:22.933Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-274296017855.us-central1.cloudfunctions.appspot.com/a0e4739e-ac60-4def-af0f-f2c05a1ee327.zip 200
+[debug] [2025-04-12T03:34:22.934Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-274296017855.us-central1.cloudfunctions.appspot.com/a0e4739e-ac60-4def-af0f-f2c05a1ee327.zip [omitted]
+[info] ✔  functions: functions folder uploaded successfully 
+[info] i  hosting[adaptivabiomotion-93558]: beginning deploy... 
+[info] i  hosting[adaptivabiomotion-93558]: found 36 files in public 
+[debug] [2025-04-12T03:34:22.944Z] [hosting] uploading with 200 concurrency
+[debug] [2025-04-12T03:34:22.947Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:22.947Z] [hosting] hash cache [cHVibGlj] stored for 36 files
+[debug] [2025-04-12T03:34:22.947Z] [hosting][hash queue][FINAL] {"max":0,"min":0,"avg":0,"active":0,"complete":36,"success":36,"errored":0,"retried":0,"total":36,"elapsed":2}
+[debug] [2025-04-12T03:34:22.947Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/274296017855/sites/adaptivabiomotion-93558/versions/19a327560a0d4b14:populateFiles [none]
+[debug] [2025-04-12T03:34:22.947Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/274296017855/sites/adaptivabiomotion-93558/versions/19a327560a0d4b14:populateFiles {"files":{"/records.js":"4c16a80e4dd6c8a974c9a05fdd514adcc2ef0aac9340c4f2b0a0a985a2bb98ad","/records.html":"4592166b402abdec369d010fddc79a79915305fd96d8a649d11a8167b37a2bfd","/person-frontal.jpg":"0f91b5afd3a9f4427b6298889b724e8f07a349d512e5c7a041bc99de752bcf25","/login.js":"20ed2f2941b3c9e19fb582daa8cb36a2b387d9c068d5fde2f7bed5da3091758e","/index.html":"1dd48451ce2df48bc4c77bdc68c56d6cfdcfecddd35527f3fb513b19b4de1a0b","/form.js":"61e6ff66c63bb3b88bb9e59d78171e5bd12ad32e2f9772838dc3905917449b90","/form.html":"077428b2baabaaf1b3ab7e9423a6a82311a082c6737dbdb0134c33f198130b48","/404.html":"6537619fa0edb6a05c3fa83265461172fea2307ecff34424f323310c8c8eb4be","/uploads/Roberto_1744334536158_posterior.png":"ee7e26fcc4b8a308c54945f48cc270f9788b8376f0185e671b341ad707f67dfb","/uploads/Roberto_1744334536158_plantar.png":"952f59b76e4b25e184851d8d799e7eed0d70afe86981c996c25c47110cec1c46","/uploads/Roberto_1744334536158_frontal.png":"2121dd37d83eb2b4276ffe4d667aafe0dd12995e3d9003915da6a796b17898e4","/uploads/Pedro_1744332980610_posterior.png":"d170cb1a80f01a7f2591f8cde63a25444994f132902686fab5880ad561c63e65","/uploads/Pedro_1744332980610_plantar.png":"e645cd2f99a11918caa2383a52a485b048501c7c52ad5fe961ce48e26c4c0221","/uploads/Pedro_1744332980610_frontal.png":"ddd1c3d26d6f59a75599cc3c531ef01670dd47fd8d71a7f0415c2520aa139089","/uploads/Luis_EduARDO_1744331614212_posterior.png":"8a24c0c36b6f3a511d78543907af5500a98b05b4886444fc5f904d48b442675c","/uploads/Luis_EduARDO_1744331614212_plantar.png":"4b8e6af9b143423183fc039c1247c8176ba2fee273a8a106ac69af26afd2f30b","/uploads/Luis_EduARDO_1744331614212_frontal.png":"c5a21663c54c2669d2675d5ea5b7c3f355c22a46790b0d88e9f78e647ceb0125","/uploads/Luis_1744331392532_posterior.png":"b418e632ab95ea2d75ce29555083b40d92d1225f6344ee903a8b60791daee70a","/uploads/Luis_1744331392532_plantar.png":"5ca89fae14d3fd3e1d3bb3f770b366c649c2e2f4f1316a50c0cc7bccc043d139","/uploads/Luis_1744331392532_frontal.png":"26c694fb5e595627797f8e8ce3c58eea789113f20c854b33cade1f84d5f915f3","/uploads/John_Smith_1744331098738_posterior.png":"0885bcaa319e1ff54b99238421f8b93f41c894220d71978de9f3e472f76f24b4","/uploads/John_Smith_1744331098738_plantar.png":"9f285ac432a0befcb9f70b0ad7ac598e3985adafcde6e98a54177d31ff5d5e2e","/uploads/John_Smith_1744331098738_frontal.png":"a7eb8e7858acac159db2238547bd1fd9859d742a562d91bf85ef2465f0ae5b1e","/uploads/Edgar_1744325384634_posterior.png":"6ede9d42c51ffa2468b5d23f705db91bc1d7d1c6357b7397f969629acd75adf4","/uploads/Edgar_1744325384634_plantar.png":"f1cd5cb8e2d69268e64aa8b68684fa9238bf9295620facb75c8097dda83c6e99","/uploads/Edgar_1744325384634_frontal.png":"eecc7218dc8c27ed9ec730eb3123a173b9948c417639913bb31789f290e1fe00","/uploads/Andres_1744325020604_posterior.png":"b6c498aa5db39beee0e8a9ac6f6dc03a7bda5e89937064ae6bc3b48efd8663d1","/uploads/Andres_1744325020604_plantar.png":"f24fe1ad3cde572e09434f1cd91533cd398457857bcf3cf4d8a2b287ee553196","/uploads/Andres_1744325020604_frontal.png":"2d40e7445af360bcc403347b08f67e20e5f185a836c1b965a701b1a0d70dd764","/uploads/Andres_1744323465122_posterior.png":"1a6857aed0444efba78c9b1f677be59001e2aab22154b8994e645511d00890a9","/uploads/Andres_1744323465122_plantar.png":"3e990306cf6cf6480c325315a6917eb8ebec12c8cce31340a63677a6bb86a64c","/uploads/Andres_1744323465122_frontal.png":"c4122535cc086e911214b8a4eb5a68e3845baf9e93117fb4769dda6704d888f8","/uploads/Adrian_1744419921191_retropie.png":"2efbc989ecfb59e87c51a218f5302a775d703d27fcb266ae68a0610f83e4b3e1","/uploads/Adrian_1744419921191_posterior.png":"dc59922bf54d8c3e5420fd86cb796f86c24c6a4865cb9e2d72ba6819f324853d","/uploads/Adrian_1744419921191_plantar.png":"68a3b13e7c52f62bb2ed301c660aa532bb2b4b9bc60926220cf5c42cc001540a","/uploads/Adrian_1744419921191_frontal.png":"a968517567c8d026ee5bf0de1e152404df307042cd4004fa52d4297398408a4c"}}
+[debug] [2025-04-12T03:34:23.133Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/274296017855/sites/adaptivabiomotion-93558/versions/19a327560a0d4b14:populateFiles 200
+[debug] [2025-04-12T03:34:23.133Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/274296017855/sites/adaptivabiomotion-93558/versions/19a327560a0d4b14:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/adaptivabiomotion-93558/versions/19a327560a0d4b14/files"}
+[debug] [2025-04-12T03:34:23.133Z] [hosting][populate queue][FINAL] {"max":186,"min":186,"avg":186,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":187}
+[debug] [2025-04-12T03:34:23.133Z] [hosting] uploads queued: 0
+[debug] [2025-04-12T03:34:23.133Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1744428863133}
+[info] ✔  hosting[adaptivabiomotion-93558]: file upload complete 
+[debug] [2025-04-12T03:34:23.134Z] [hosting] deploy completed after 199ms
+[info] i  functions: updating Node.js 22 (2nd Gen) function app(us-central1)... 
+[debug] [2025-04-12T03:34:23.136Z] No OAuth tokens found
+[debug] [2025-04-12T03:34:23.136Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v2/projects/adaptivabiomotion-93558/locations/us-central1/functions/app updateMask=name%2CbuildConfig.runtime%2CbuildConfig.entryPoint%2CbuildConfig.source.storageSource.bucket%2CbuildConfig.source.storageSource.object%2CbuildConfig.environmentVariables%2CbuildConfig.sourceToken%2CserviceConfig.environmentVariables%2CserviceConfig.ingressSettings%2CserviceConfig.timeoutSeconds%2CserviceConfig.serviceAccountEmail%2CserviceConfig.availableMemory%2CserviceConfig.minInstanceCount%2CserviceConfig.maxInstanceCount%2CserviceConfig.maxInstanceRequestConcurrency%2CserviceConfig.availableCpu%2CserviceConfig.vpcConnector%2CserviceConfig.vpcConnectorEgressSettings%2Clabels%2CbuildConfig.buildEnvironmentVariables
+[debug] [2025-04-12T03:34:23.137Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/adaptivabiomotion-93558/locations/us-central1/functions/app {"name":"projects/adaptivabiomotion-93558/locations/us-central1/functions/app","buildConfig":{"runtime":"nodejs22","entryPoint":"app","source":{"storageSource":{"bucket":"gcf-v2-uploads-274296017855.us-central1.cloudfunctions.appspot.com","object":"a0e4739e-ac60-4def-af0f-f2c05a1ee327.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"adaptivabiomotion-93558\",\"storageBucket\":\"adaptivabiomotion-93558.firebasestorage.app\"}","GCLOUD_PROJECT":"adaptivabiomotion-93558","EVENTARC_CLOUD_EVENT_SOURCE":"projects/adaptivabiomotion-93558/locations/us-central1/services/app","FUNCTION_TARGET":"app","LOG_EXECUTION_ID":"true"},"ingressSettings":null,"timeoutSeconds":null,"serviceAccountEmail":null,"availableMemory":"256Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"2659bb433f146f40aa9cef011ccee4498c504c38"}}
