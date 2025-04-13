@@ -16,7 +16,7 @@ const app = express();
 
 // Middlewares
 app.use(cors({origin: true,credentials: true}));
-app.use(express.json({limit: "100mb"}));
+app.use(express.json({limit: "150mb"}));
 app.use(express.static(path.join(__dirname, "../public"))); // frontend
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
