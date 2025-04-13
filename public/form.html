@@ -13,7 +13,10 @@
     <label>Nombre del paciente: <input type="text" name="nombrePaciente" required></label><br>
     <label>Edad: <input type="number" name="edad" required></label><br>
     <label>Profesión: <input type="text" name="profesion"></label><br>
+    <label>Exigencias laborales: <textarea name="exigenciasLaborales"></textarea> </label><br>
     <label>Preferencias en el calzado: <input type="text" name="preferenciasCalzado"></label><br>
+    <label>Actividades Deportivas/Recreativas: <textarea name="actividadesDeportivasRecreativas"></textarea> </label><br>
+    
 
     <!-- 2. Motivo de la visita -->
     <h2>2. Motivo de la Visita</h2>
@@ -32,16 +35,41 @@
     </fieldset>
 
     <fieldset>
+      <legend>Eversión</legend>
+      <label>Derecha: <input type="checkbox" name="eversion_derecha"></label>
+      <label>Izquierda: <input type="checkbox" name="eversion_izquierda"></label>
+      </fieldset>
+
+    <fieldset>
     <legend>Aducción</legend>
     <label>Derecha: <input type="checkbox" name="aduccion_derecha"></label>
     <label>Izquierda: <input type="checkbox" name="aduccion_izquierda"></label>
     </fieldset>
 
     <fieldset>
+      <legend>Abducción</legend>
+      <label>Derecha: <input type="checkbox" name="abduccion_derecha"></label>
+      <label>Izquierda: <input type="checkbox" name="abduccion_izquierda"></label>
+      </fieldset>
+  
+
+    <fieldset>
     <legend>Supinación</legend>
     <label>Derecha: <input type="checkbox" name="supinacion_derecha"></label>
     <label>Izquierda: <input type="checkbox" name="supinacion_izquierda"></label>
     </fieldset>
+    <fieldset>
+    <legend>Pronación</legend>
+    <label>Derecha: <input type="checkbox" name="pronacion_derecha"></label>
+    <label>Izquierda: <input type="checkbox" name="pronacion_izquierda"></label>
+    </fieldset>
+
+
+    <fieldset>
+      <legend>Pronación</legend>
+      <label>Derecha: <input type="checkbox" name="pronacion_derecha"></label>
+      <label>Izquierda: <input type="checkbox" name="pronacion_izquierda"></label>
+      </fieldset>
 
     <fieldset>
     <legend>Equino</legend>
@@ -49,31 +77,17 @@
     <label>Izquierda: <input type="checkbox" name="equino_izquierda"></label>
     </fieldset>
 
-    <label>Cojera: <input type="checkbox" name="cojera"></label><br>
-
     <fieldset>
-    <legend>Eversión</legend>
-    <label>Derecha: <input type="checkbox" name="eversion_derecha"></label>
-    <label>Izquierda: <input type="checkbox" name="eversion_izquierda"></label>
-    </fieldset>
+      <legend>Talo</legend>
+      <label>Derecha: <input type="checkbox" name="talo_derecha"></label>
+      <label>Izquierda: <input type="checkbox" name="talo_izquierda"></label>
+      </fieldset>
 
-    <fieldset>
-    <legend>Abducción</legend>
-    <label>Derecha: <input type="checkbox" name="abduccion_derecha"></label>
-    <label>Izquierda: <input type="checkbox" name="abduccion_izquierda"></label>
-    </fieldset>
-
-    <fieldset>
-    <legend>Pronación</legend>
-    <label>Derecha: <input type="checkbox" name="pronacion_derecha"></label>
-    <label>Izquierda: <input type="checkbox" name="pronacion_izquierda"></label>
-    </fieldset>
-
-    <fieldset>
-    <legend>Talo</legend>
-    <label>Derecha: <input type="checkbox" name="talo_derecha"></label>
-    <label>Izquierda: <input type="checkbox" name="talo_izquierda"></label>
-    </fieldset>
+      <fieldset>
+        <legend>Cojera</legend>
+        <label>Derecha: <input type="checkbox" name="cojera_derecha"></label>
+        <label>Izquierda: <input type="checkbox" name="cojera_izquierda"></label>
+        </fieldset>
 
     <fieldset>
     <legend>Normal</legend>
@@ -145,11 +159,6 @@
     <label>Izquierda: <input type="checkbox" name="valgo_antepie_izquierda"></label>
     </fieldset>
 
-    <fieldset>
-    <legend>Pie Normal</legend>
-    <label>Derecha: <input type="checkbox" name="pie_normal_derecha"></label>
-    <label>Izquierda: <input type="checkbox" name="pie_normal_izquierda"></label>
-    </fieldset>
 
     <fieldset>
     <legend>Varo de Retropié</legend>
@@ -168,6 +177,12 @@
     <label>Derecha: <input type="checkbox" name="dismetria_derecha"></label>
     <label>Izquierda: <input type="checkbox" name="dismetria_izquierda"></label>
     </fieldset>
+
+    <fieldset>
+      <legend>Pie Normal</legend>
+      <label>Derecha: <input type="checkbox" name="pie_normal_derecha"></label>
+      <label>Izquierda: <input type="checkbox" name="pie_normal_izquierda"></label>
+      </fieldset>
 
         <style>
   .webcam-section {
@@ -260,6 +275,22 @@
       <img id="img_retropie" src="" alt="Retropie">
     </div>
   </div>
+
+
+  <div class="capture-box">
+    <div>
+      <label>Receta</label><br>
+      <video id="video_receta" width="240" autoplay></video><br>
+      <button type="button" onclick="captureImage('receta')">Capturar</button><br>
+      <canvas id="canvas_receta" width="240" height="180" style="display:none;"></canvas>
+      <input type="hidden" name="imagen_receta">
+    </div>
+    <div class="preview-box">
+      <img id="img_receta" src="" alt="Receta">
+    </div>
+  </div>
+
+
 </div>
 
 
@@ -288,7 +319,6 @@
     <fieldset>
     <legend>Fórmula digital del antepié</legend>
     <label><input type="checkbox" name="Pie_griego"> Pie griego</label><br>
-    <label><input type="checkbox" name="Pie_espanol"> Pie español</label><br>
     <label><input type="checkbox" name="Pie_egipcio"> Pie egipcio</label><br>
     <label><input type="checkbox" name="Pie_cuadrado"> Pie cuadrado</label><br>
 
@@ -305,6 +335,8 @@
         <option value="G">G</option>
         <option value="ML">ML</option>
         <option value="M">M</option>
+        <option value="MA">ML</option>
+        <option value="MAC">ML</option>
         <option value="CH">CH</option>
         <option value="N">N</option>
         <option value="16-21">16-21</option>
@@ -317,6 +349,8 @@
         <option value="G">G</option>
         <option value="ML">ML</option>
         <option value="M">M</option>
+        <option value="MA">ML</option>
+        <option value="MAC">ML</option>
         <option value="CH">CH</option>
         <option value="N">N</option>
         <option value="16-21">16-21</option>
@@ -363,26 +397,6 @@
     <label>Izquierda: <input type="checkbox" name="barra_metatarsal_izquierda"></label>
     </fieldset>
 
-    <!-- Taloneras -->
-    <fieldset>
-    <legend>Taloneras</legend>
-    <label>Derecha (QTY): <input type="number" name="talonera_derecha_qty" min="0"></label>
-    <label>Izquierda (QTY): <input type="number" name="talonera_izquierda_qty" min="0"></label>
-    </fieldset>
-
-    <!-- Donas -->
-    <fieldset>
-    <legend>Donas</legend>
-    <label>Derecha (QTY): <input type="number" name="dona_derecha_qty" min="0"></label>
-    <label>Izquierda (QTY): <input type="number" name="dona_izquierda_qty" min="0"></label>
-    </fieldset>
-
-    <!-- Herraduras -->
-    <fieldset>
-    <legend>Herraduras</legend>
-    <label>Derecha: <input type="checkbox" name="herradura_derecha"></label>
-    <label>Izquierda: <input type="checkbox" name="herradura_izquierda"></label>
-    </fieldset>
 
     <!-- Aumentos -->
     <fieldset>
@@ -441,6 +455,9 @@
     <label>Celular: <input type="tel" name="celular" pattern="[0-9]{10}" placeholder="10 dígitos"></label><br>
     <label>Email: <input type="email" name="email" placeholder="correo@ejemplo.com"></label><br>
     <label>Ciudad: <input type="text" name="ciudad" placeholder="Ciudad de residencia"></label><br>
+    <label>No. Nota: <input type="text" name="NoNota" placeholder="NoNota"></label><br>
+    <label>Total Venta: <input type="text" name="TotalVenta" placeholder="totalVenta"></label><br>
+    
 
     <button type="submit">Enviar</button>
   </form>

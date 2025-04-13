@@ -5,7 +5,7 @@
 navigator.mediaDevices.getUserMedia({ video: true })
   .then(stream => {
     // Compartimos el mismo stream entre todos los videos
-    ['frontal', 'posterior', 'plantar', 'retropie'].forEach(view => {
+    ['frontal', 'posterior', 'plantar', 'retropie','receta'].forEach(view => {
       const video = document.getElementById(`video_${view}`);
       if (video) {
         video.srcObject = stream;
