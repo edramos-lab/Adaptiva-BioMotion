@@ -37,33 +37,36 @@ document.getElementById('diagnosticForm').addEventListener('submit', async (e) =
   e.preventDefault();
 
    
-    // Use FormData to handle file uploads and other form data
-    const formData = new FormData(e.target);
-  
+   // Convert form data into a regular object
+  const formData = Object.fromEntries(new FormData(e.target).entries());
+
+  try {
+    const response = await fetch("https://app-maddzahwgq-uc.a.run.app/api/form", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData)
+    });
+    
+
+    const text = await response.text();
+    let resData;
     try {
-      const response = await fetch("https://app-maddzahwgq-uc.a.run.app/api/form", {
-        method: "POST",
-        body: formData // Send FormData directly
-      });
-  
-      const text = await response.text();
-      let resData;
-      try {
-        resData = JSON.parse(text);
-      } catch {
-        console.error("❌ Respuesta no es JSON:", text);
-        alert("Respuesta inesperada del servidor.");
-        return;
-      }
-  
-      if (response.ok) {
-        alert('Formulario enviado con éxito\nID: ' + resData.id);
-        e.target.reset();
-      } else {
-        alert('Error: ' + resData.message || 'Error desconocido');
-      }
-    } catch (err) {
-      console.error('Error al enviar el formulario:', err);
-      alert('Error inesperado al enviar el formulario');
+      resData = JSON.parse(text);
+    } catch {
+      console.error("❌ Respuesta no es JSON:", text);
+      alert("Respuesta inesperada del servidor.");
+      return;
     }
-  });
+
+    if (response.ok) {
+      alert('Formulario enviado con éxito\nID: ' + resData.id);
+      e.target.reset();
+    } else {
+      alert('Error: ' + resData.message || 'Error desconocido');
+    }
+  } catch (err) {
+    console.error('Error al enviar el formulario:', err);
+    alert('Error inesperado al enviar el formulario');
+  }
+
+});
