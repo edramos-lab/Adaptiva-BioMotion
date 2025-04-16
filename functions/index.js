@@ -20,50 +20,66 @@ app.use(express.json({limit: "150mb"}));
 app.use(express.static(path.join(__dirname, "../public"))); // frontend
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Ruta para guardar formulario
-app.post("/api/form", async (req, res) => {
-    try {
-      const data = req.body;
-      const timestamp = Date.now();
-      const nombre = data.nombrePaciente || "paciente";
-      const id = `${nombre.replace(/\s+/g, "_")}_${timestamp}`;
-      data.id = id;
-      data.fecha = new Date().toISOString();
-  
-      // Guardar imágenes en Cloud Storage
-      const saveImage = async (base64, label) => {
-        if (!base64) return null;
-        const buffer = Buffer.from(base64.replace(/^data:image\/png;base64,/, ""), "base64");
-        const filename = `${id}_${label}.png`;
-        const file = bucket.file(`uploads/${filename}`);
-  
-        await file.save(buffer, {
-          metadata: { contentType: 'image/png' },
-          public: true,
-        });
-  
-        return `https://storage.googleapis.com/${bucket.name}/uploads/${filename}`;
-      };
-  
-      // Esperar a que se guarden todas las imágenes
-      data.imagen_frontal = await saveImage(data.imagen_frontal, "frontal");
-      data.imagen_posterior = await saveImage(data.imagen_posterior, "posterior");
-      data.imagen_plantar = await saveImage(data.imagen_plantar, "plantar");
-      data.imagen_retropie = await saveImage(data.imagen_retropie, "retropie");
-  
-      // Guardar los datos en Firestore
-      const db = admin.firestore();
-      await db.collection("formularios").doc(id).set(data);
-  
-      console.log("📥 Datos guardados en Firestore:", data);
-  
-      res.status(200).json({ message: "Formulario guardado", id });
-    } catch (error) {
-      console.error("❌ Error al guardar:", error);
-      res.status(500).json({ message: "Error interno del servidor" });
+const multer = require('multer');
+const upload = multer({ storage: multer.memoryStorage() });
+
+app.post("/api/form", upload.single('document'), async (req, res) => {
+  try {
+    const data = JSON.parse(req.body.data); // campos JSON desde FormData
+    const file = req.file;
+    const timestamp = Date.now();
+    const nombre = data.nombrePaciente || "paciente";
+    const id = `${nombre.replace(/\s+/g, "_")}_${timestamp}`;
+    data.id = id;
+    data.fecha = new Date().toISOString();
+
+    // Guardar imágenes base64 en Storage como antes...
+    
+    // Guardar imágenes en Cloud Storage
+    const saveImage = async (base64, label) => {
+      if (!base64) return null;
+      const buffer = Buffer.from(base64.replace(/^data:image\/png;base64,/, ""), "base64");
+      const filename = `${id}_${label}.png`;
+      const file = bucket.file(`uploads/${filename}`);
+
+      await file.save(buffer, {
+        metadata: { contentType: 'image/png' },
+        public: true,
+      });
+
+      return `https://storage.googleapis.com/${bucket.name}/uploads/${filename}`;
+    };
+
+    // Esperar a que se guarden todas las imágenes
+    data.imagen_frontal = await saveImage(data.imagen_frontal, "frontal");
+    data.imagen_posterior = await saveImage(data.imagen_posterior, "posterior");
+    data.imagen_plantar = await saveImage(data.imagen_plantar, "plantar");
+    data.imagen_retropie = await saveImage(data.imagen_retropie, "retropie");
+
+
+    // Adjuntar documento si existe
+    if (file) {
+      const ext = path.extname(file.originalname);
+      const filename = `${id}_document${ext}`;
+      const bucketFile = bucket.file(`documents/${filename}`);
+      await bucketFile.save(file.buffer, {
+        metadata: { contentType: file.mimetype },
+        public: true,
+      });
+      data.document_url = `https://storage.googleapis.com/${bucket.name}/documents/${filename}`;
     }
-  });
-  
+
+    // Guardar en Firestore
+    const db = admin.firestore();
+    await db.collection("formularios").doc(id).set(data);
+
+    res.status(200).json({ message: "Formulario guardado", id });
+  } catch (err) {
+    console.error("❌ Error al guardar:", err);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+});
+
 
 app.post("/api/login", async (req, res) => {
     try {

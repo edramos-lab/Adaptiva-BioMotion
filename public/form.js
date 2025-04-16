@@ -35,18 +35,14 @@ function captureImage(view) {
 
 document.getElementById('diagnosticForm').addEventListener('submit', async (e) => {
   e.preventDefault();
-
-   
-   // Convert form data into a regular object
-  const formData = Object.fromEntries(new FormData(e.target).entries());
+  const form = e.target;
+  const formData = new FormData(form); // FormData captures text + files
 
   try {
-    const response = await fetch("https://app-maddzahwgq-uc.a.run.app/api/form", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData)
+    const response = await fetch('/api/form', {
+      method: 'POST',
+      body: formData // no need for headers
     });
-    
 
     const text = await response.text();
     let resData;
@@ -60,7 +56,7 @@ document.getElementById('diagnosticForm').addEventListener('submit', async (e) =
 
     if (response.ok) {
       alert('Formulario enviado con éxito\nID: ' + resData.id);
-      e.target.reset();
+      form.reset();
     } else {
       alert('Error: ' + resData.message || 'Error desconocido');
     }
@@ -68,5 +64,4 @@ document.getElementById('diagnosticForm').addEventListener('submit', async (e) =
     console.error('Error al enviar el formulario:', err);
     alert('Error inesperado al enviar el formulario');
   }
-
 });
